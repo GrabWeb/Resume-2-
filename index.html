@@ -3,81 +3,155 @@
   <head>
     <title>个人简历</title>
     <link rel="stylesheet" href="./style.css">
+    <script src="//at.alicdn.com/t/font_1188943_iliw79ff2xr.js"></script>
+    <style type="text/css">
+        .icon {
+           width: 1em; 
+           height: 1em;
+           vertical-align: -0.15em;
+           fill: currentColor;
+           overflow: hidden;
+        }
+    </style>
   </head>
   <body>
-    <div class="topNavBar clearfix">
-      <a class="logo" href="#" alt="logo" style="float: left; ">
-        <span class="rs">RS</span><span class="card">card</span>
-      </a>
-      <nav style="float: right;">
-        <ul class="clearfix">
-          <li><a href="#">关于</a></li>
-          <li><a href="#">技能</a></li>
-          <li><a href="#">作品</a></li>
-          <li><a href="#">博客</a></li>
-          <li><a href="#">日历</a></li>
-          <li><a href="#">联系方式</a></li>
-          <li><a href="#">其他</a></li>
-        </ul>
-      </nav>
+    <div class="topNavBar">
+        <div class="topNavBar-inner clearfix">
+            <a class="logo" href="#" alt="logo" style="float: left; ">
+                <span class="rs">RS</span><span class="card">card</span>
+            </a>
+            <nav style="float: right;">
+            <ul class="clearfix">
+                <li><a href="#">关于</a></li>
+                <li><a href="#">技能</a></li>
+                <li><a href="#">作品</a></li>
+                <li><a href="#">博客</a></li>
+                <li><a href="#">日历</a></li>
+                <li><a href="#">联系方式</a></li>
+                <li><a href="#">其他</a></li>
+            </ul>
+            </nav>
+        </div>
     </div>
-    <div class="banner" style="background-image: url(./img/background.jpg); border: 1px solid red"></div>
-    <main>
-      <div class="card">
-        <div class="pictureAndText">
+    <div class="banner">
+        <div class="mask"></div>
+    </div>
+    <main style="">
+      <div class="userCard">
+        <div class="pictureAndText clearfix">
           <div class="picture">
-            <img src="" alt="头像">
+            <img src="./img/avatar.jpg" width=299 height=347 alt="头像">
           </div>
           <div class="text">
-            <div class="profile">
-              <span class="welcome">Hello</span>
-              <h1>郝壮</h1>
-              <p>职业</p>
-              <hr>
-              <dl>
-                <dt>年龄</dt>
-                <dd>18</dd>
-                <dt>所在城市</dt>
-                <dd>北京</dd>
-                <dt>邮箱</dt>
-                <dd>1340335269@qq.com</dd>
-                <dt>手机</dt>
-                <dd>xxxxxxxxxxx</dd>
-              </dl>
-            </div>
+            <span class="welcome">Hello
+                <span class="triangle"></span>
+            </span>
+            <h1>郝壮</h1>
+            <p>职业</p>
+            <hr>
+            <dl>
+            <dt>年龄</dt>
+            <dd>18</dd>
+            <dt>所在城市</dt>
+            <dd>北京</dd>
+            <dt>邮箱</dt>
+            <dd>1340335269@qq.com</dd>
+            <dt>手机</dt>
+            <dd>xxxxxxxxxxx</dd>
+            </dl> 
           </div>
         </div>
         <footer class="media">
-          <a href="#"><img src="#" alt="..."></a>
-          <a href="#"><img src="#" alt="..."></a>
-          <a href="#"><img src="#" alt="..."></a>
-          <a href="#"><img src="#" alt="..."></a>
-          <a href="#"><img src="#" alt="..."></a>
-          <a href="#"><img src="#" alt="..."></a>
-          <a href="#"><img src="#" alt="..."></a>
+          <a href="#">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-github"></use>
+            </svg>
+          </a>
+          <a href="#">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-twitter"></use>
+            </svg>
+          </a>
+          <a href="#">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-ali"></use>
+            </svg>
+          </a>
+          <a href="#">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-CN_jianshu"></use>
+            </svg>
+          </a>
+          <a href="#">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-weibo"></use>
+            </svg>
+          </a>
         </footer>
       </div>
-
-      <a class="button" href="#">下载 PDF 简历</a>
-
-      <p>
+      <p class="downloadResume-wrapper">
+        <a class="button downloadResume" href="./resume.pdf" target="_blank" download>下载 PDF 简历</a>
+      </p>
+      <p class="selfIntroduction">
         自我简介<br>
         技能：描述
       </p>
 
     </main>
-    <section>
+    <section class="skills">
       <h2>技能</h2>
-      <ol>
-        <li>HTML 5 &amp; CSS 3</li>
-        <li>JavaScript</li>
-        <li>jQuery</li>
-        <li>Vue</li>
-        <li>React</li>
-        <li>HTTP</li>
+      <ol class="clearfix">
+        <li>
+            <h3>
+                HTML 5 &amp; CSS 3
+            </h3>
+            <div class="progressBar">
+                <div class="progress" style="width: 10%;"></div>
+            </div>
+        </li>
+        <li>
+            <h3>
+                JavaScript
+            </h3>
+            <div class="progressBar">
+                <div class="progress" style="width: 20%"></div>
+            </div>
+        </li>
+        <li>
+            <h3>
+                jQuery
+            </h3>
+            <div class="progressBar">
+                <div class="progress" style="width: 30%"></div>
+            </div>
+        </li>
+        <li>
+            <h3>
+                Vue.js
+            </h3>
+            <div class="progressBar">
+                <div class="progress" style="width: 40%"></div>
+            </div>
+        </li>
+        <li>
+            <h3>
+                React.js
+            </h3>
+            <div class="progressBar">
+                <div class="progress"  style="width: 50%"></div>
+            </div>
+        </li>
+        <li>
+            <h3>
+                Node.js
+            </h3>
+            <div class="progressBar">
+                <div class="progress"  style="width: 60%"></div>
+            </div>
+        </li>
       </ol>
     </section>
-    <section>
+    <section class="portfolio">
       <h2>作品集</h2>
       <nav>
         <ol>

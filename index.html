@@ -37,12 +37,12 @@
             <a class="logo" href="#" alt="logo" style="float: left; ">
                 <span class="rs">RS</span><span class="card">card</span>
             </a>
-            <nav style="float: right;">
+            <nav class="menu" style="float: right;">
             <ul class="clearfix">
                 <li><a href="#">关于</a></li>
                 <li><a href="#">技能</a></li>
                 <li>
-                  <a class="menuTrigger" href="#">作品</a>
+                  <a href="#">作品</a>
                   <ul class="submenu">
                     <li>作品一</li>
                     <li>作品二</li>
@@ -50,7 +50,7 @@
                   </ul>
                 </li>
                 <li>
-                  <a class="menuTrigger" href="#">博客</a>
+                  <a href="#">博客</a>
                   <ul class="submenu">
                     <li>博客一</li>
                     <li>博客二</li>
@@ -235,23 +235,13 @@
         }
       }
 
-      let aTags = document.getElementsByClassName('menuTrigger')
-      for(let i = 0; i < aTags.length; i++){
-        aTags[i].onmouseenter = function(event){
-          let a = event.currentTarget
-          let brother = a.nextSibling
-          while(brother.tagName !== 'UL'){//标签ul需要大写
-            brother = brother.nextSibling
-          }
-          brother.classList.add('active')
+      let liTags = document.querySelectorAll('nav.menu > ul > li')//找出选择器所匹配的所有li
+      for(let i = 0; i < liTags.length; i++){
+        liTags[i].onmouseenter = function(event){
+          event.currentTarget.classList.add('active')
         }
-        aTags[i].onmouseleave = function(event){
-          let a = event.currentTarget
-          let brother = a.nextSibling
-          while(brother.tagName !== 'UL'){//标签ul需要大写
-            brother = brother.nextSibling
-          }
-          brother.classList.remove('active')
+        liTags[i].onmouseleave = function(event){
+          event.currentTarget.classList.remove('active')
         }
       }
     </script>

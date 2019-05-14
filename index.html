@@ -41,8 +41,22 @@
             <ul class="clearfix">
                 <li><a href="#">关于</a></li>
                 <li><a href="#">技能</a></li>
-                <li><a href="#">作品</a></li>
-                <li><a href="#">博客</a></li>
+                <li>
+                  <a class="menuTrigger" href="#">作品</a>
+                  <ul class="submenu">
+                    <li>作品一</li>
+                    <li>作品二</li>
+                    <li>作品三</li>
+                  </ul>
+                </li>
+                <li>
+                  <a class="menuTrigger" href="#">博客</a>
+                  <ul class="submenu">
+                    <li>博客一</li>
+                    <li>博客二</li>
+                    <li>博客三</li>
+                    </ul>
+                </li>
                 <li><a href="#">日历</a></li>
                 <li><a href="#">联系方式</a></li>
                 <li><a href="#">其他</a></li>
@@ -218,6 +232,26 @@
           topNavBar.classList.add('sticky');
         }else{
           topNavBar.classList.remove('sticky');
+        }
+      }
+
+      let aTags = document.getElementsByClassName('menuTrigger')
+      for(let i = 0; i < aTags.length; i++){
+        aTags[i].onmouseenter = function(event){
+          let a = event.currentTarget
+          let brother = a.nextSibling
+          while(brother.tagName !== 'UL'){//标签ul需要大写
+            brother = brother.nextSibling
+          }
+          brother.classList.add('active')
+        }
+        aTags[i].onmouseleave = function(event){
+          let a = event.currentTarget
+          let brother = a.nextSibling
+          while(brother.tagName !== 'UL'){//标签ul需要大写
+            brother = brother.nextSibling
+          }
+          brother.classList.remove('active')
         }
       }
     </script>

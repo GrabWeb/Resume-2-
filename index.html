@@ -39,10 +39,10 @@
             </a>
             <nav class="menu" style="float: right;">
             <ul class="clearfix">
-                <li><a href="#">关于</a></li>
-                <li><a href="#">技能</a></li>
+                <li><a href="#siteAbout">关于</a></li>
+                <li><a href="#siteSkills">技能</a></li>
                 <li>
-                  <a href="#">作品</a>
+                  <a href="#siteWorks">作品</a>
                   <ul class="submenu">
                     <li>作品一</li>
                     <li>作品二</li>
@@ -67,8 +67,8 @@
     <div class="banner">
         <div class="mask"></div>
     </div>
-    <main style="">
-      <div class="userCard">
+    <main>
+      <div id="siteAbout" class="userCard">
         <div class="pictureAndText clearfix">
           <div class="picture">
             <img src="./img/avatar.jpg" width=299 height=347 alt="头像">
@@ -129,7 +129,7 @@
       </p>
 
     </main>
-    <section class="skills">
+    <section id="siteSkills" class="skills">
       <h2>技能</h2>
       <ol class="clearfix">
         <li>
@@ -182,10 +182,10 @@
         </li>
       </ol>
     </section>
-    <section class="portfolio">
+    <section id="siteWorks" class="portfolio">
       <h2>作品集</h2>
       <nav>
-        <ol>
+        <ol class='clearfix'>
           <li>所有</li>
           <li>框架</li>
           <li>原生JS&amp;CSS</li>
@@ -242,6 +242,18 @@
         }
         liTags[i].onmouseleave = function(event){
           event.currentTarget.classList.remove('active')
+        }
+      }
+
+      let aTags = document.querySelectorAll('nav.menu > ul > li > a')
+      for(let i = 0; i < aTags.length; i++){
+        aTags[i].onclick = function(event){
+          event.preventDefault()
+          let a = event.currentTarget
+          let href = a.getAttribute('href')//'#siteAbout'
+          let element = document.querySelector(href)//获取文档中id=siteAbout的元素
+          let top = element.offsetTop
+          window.scrollTo(0, top - 80)//x方向不变，y方向top-80
         }
       }
     </script>

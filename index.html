@@ -29,9 +29,10 @@
     </style>
   </head>
   <body>
-    <div id="sitewelcome" class="site-welcome active">
+    <!-- 加载效果 -->
+    <!-- <div id="sitewelcome" class="site-welcome active">
       <div class="loading"></div>
-    </div>
+    </div> -->
     <div id="topNavBar" class="topNavBar">
         <div class="topNavBar-inner clearfix">
             <a class="logo" href="#" alt="logo" style="float: left; ">
@@ -68,7 +69,7 @@
         <div class="mask"></div>
     </div>
     <main>
-      <div id="siteAbout" class="userCard">
+      <div data-x id="siteAbout" class="userCard">
         <div class="pictureAndText clearfix">
           <div class="picture">
             <img src="./img/avatar.jpg" width=299 height=347 alt="头像">
@@ -129,7 +130,7 @@
       </p>
 
     </main>
-    <section id="siteSkills" class="skills">
+    <section data-x id="siteSkills" class="skills">
       <h2>技能</h2>
       <ol class="clearfix">
         <li>
@@ -182,13 +183,13 @@
         </li>
       </ol>
     </section>
-    <section id="siteWorks" class="portfolio">
+    <section data-x id="siteWorks" class="portfolio">
       <h2>作品集</h2>
       <nav>
         <ol class='clearfix'>
-          <li>所有</li>
-          <li>框架</li>
-          <li>原生JS&amp;CSS</li>
+          <li id="portfolio1">所有</li>
+          <li id="portfolio2">框架</li>
+          <li id="portfolio3">原生JS&amp;CSS</li>
         </ol>
         <div id="portfolioBar" class="bar state-1">
           <div class="bar-inner"></div>
@@ -225,16 +226,49 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.3.0/Tween.min.js"></script>
 
     <script>
-      setTimeout(function(){
-        sitewelcome.classList.remove('active');
-      },1000)
+      // 添加以下语句，可以看到网页加载效果
+      // setTimeout(function(){
+      //   sitewelcome.classList.remove('active');
+      // },1000)
 
+      let specialTags = document.querySelectorAll('[data-x]')
+      for(let i = 0; i<specialTags.length; i++){
+        specialTags[i].classList.add('offset')
+      }
+
+      findClosest()
       window.onscroll = function(event){
         if(window.scrollY > 0){
           topNavBar.classList.add('sticky');
         }else{
           topNavBar.classList.remove('sticky');
         }
+
+        // console.log('window.scrollY')
+        // console.log(window.scrollY)
+        findClosest()
+      }
+
+      function findClosest(){
+        let specialTags = document.querySelectorAll('[data-x]')
+        let minIndex = 0
+        for(let i = 1; i<specialTags.length; i++){
+          if(Math.abs(specialTags[i].offsetTop - window.scrollY) < Math.abs(specialTags[minIndex].offsetTop - window.scrollY)){
+            minIndex = i
+          }
+          // console.log('specialTags[i].offsetTop')
+          // console.log(specialTags[i].offsetTop)
+        }
+        //minIndex就是离窗口顶部最近的元素
+        specialTags[minIndex].classList.remove('offset')
+        let id = specialTags[minIndex].id
+        let a = document.querySelector('a[href="#' + id + '"]')
+        let li = a.parentNode
+        let brotherAndMe = li.parentNode.children
+        for(let i = 0; i < brotherAndMe.length; i++){
+          brotherAndMe[i].classList.remove('highlight')
+        }
+        li.classList.add('highlight')
       }
 
       let liTags = document.querySelectorAll('nav.menu > ul > li')//找出选择器所匹配的所有li
@@ -248,7 +282,7 @@
       }
 
       let aTags = document.querySelectorAll('nav.menu > ul > li > a')
-      
+
       function animate(time) {
         requestAnimationFrame(animate);
         TWEEN.update(time);
